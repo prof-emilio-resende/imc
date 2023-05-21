@@ -1,5 +1,6 @@
 package br.com.fit.imc.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,11 +12,12 @@ import br.com.fit.imc.services.ImcCalculatorService;
 @RestController
 @RequestMapping("/imc")
 public class ImcController {
+    @Autowired
+    private ImcCalculatorService imcService;
     
     @PostMapping("/calculate")
     public Person calculateImc(@RequestBody Person person) {
-        var imcSvc = new ImcCalculatorService();
-        imcSvc.calculate(person);
+        imcService.calculate(person);
 
         return person;
     }

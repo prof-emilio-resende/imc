@@ -1,7 +1,10 @@
 package br.com.fit.imc.services;
 
+import org.springframework.stereotype.Service;
+
 import br.com.fit.imc.models.Person;
 
+@Service
 public class ImcCalculatorService {
     public ImcCalculatorService() {
         super();
